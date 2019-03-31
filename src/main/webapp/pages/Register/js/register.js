@@ -65,7 +65,7 @@ function signback(signback_time){
         //当前时间与签到时间相比 , 小于45分钟无法签退
         let register_time = sessionStorage.getItem('register_time');
         let nowTime = getnowDate();
-        let diffDate = GetDateDiff(register_time, nowTime, "second");
+        let diffDate = GetDateDiff(register_time, nowTime, "minute");
         //时间差以秒记
         if (diffDate < 3) {
             alert('时间未到不能签退哦')
