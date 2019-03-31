@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../lib/element-ui/index.css">
+    <link rel="stylesheet" href="./wage_statistics.css">
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/element-ui/index.js"></script>
+    <title>工资统计</title>
+</head>
+
+<body>
+    <div class="vice-body">
+        <div class="main wage_statistics" id="wage_statistics">
+            <p class="title page_title">
+                <i></i>
+                工资统计
+            </p>
+            <div class="tongji_box">
+                <div class="search">
+                    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+                        <el-form-item label="查询日期">
+                            <!-- <el-input v-model="formInline.user" placeholder="审批人"></el-input> -->
+                            <el-date-picker v-model="formInline.date_select" type="daterange" format="yyyy 年 MM 月 dd 日"
+                                range-separator=" - " start-placeholder="开始日期" end-placeholder="结束日期"  size="medium">
+                            </el-date-picker>
+
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="primary" @click="searchBtn"  size="medium">查询</el-button>
+                        </el-form-item>
+                    </el-form>
+                </div>
+                <div class="tongji_table">
+                    <el-table :data="wages_list" stripe style="width: 98%" height='450'>
+                        <el-table-column type="index" width="50" fixed>
+                        </el-table-column>
+                        <el-table-column prop="job_number" label="账号" width="120" sortable>
+                        </el-table-column>
+                        <el-table-column prop="name" label="姓名"  sortable>
+                        </el-table-column>
+                        <el-table-column prop="place" label="值班室" sortable>
+                        </el-table-column>
+                        <el-table-column prop="register_time_all" label="值班时长(分钟)" sortable>
+                        </el-table-column>
+                        <el-table-column prop="wages" label="工资(元)" sortable>
+                        </el-table-column>
+                    </el-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../lib/jquery3.3.1.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../lib/moment.min.js"></script>
+<script src="./wage_statistics.js"></script>
+
+</html>

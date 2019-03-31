@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.java.mapper.RegisterDao">
+      <insert id="addRegisterRecord" keyColumn="id" keyProperty="id" useGeneratedKeys="true" parameterType="com.java.model.Register">
+          insert into register
+          (user_id,register_time,signback_time,diff_time) values
+          (#{user_id, jdbcType=INTEGER},
+          #{register_time, jdbcType=TIMESTAMP},
+          #{signback_time, jdbcType=TIMESTAMP},
+          #{diff_time, jdbcType=VARCHAR})
+      </insert>
+      
+ </mapper>

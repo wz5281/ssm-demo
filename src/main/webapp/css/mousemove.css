@@ -1,0 +1,21 @@
+html {
+    cursor: url('../menghuan.ico'), auto;
+}
+.draw {
+   position: fixed;
+   width: 1px;
+   line-height: 1px;
+   pointer-events: none;
+}
+@keyframes floatOne {
+0% {
+opacity:1;
+}
+50% {
+opacity:1;
+}
+100% {
+opacity:0;
+transform:translate3D(0, -20px, 0) scale(5) rotate(45deg);
+}
+}

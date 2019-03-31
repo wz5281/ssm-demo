@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.mapper.UserDao">
+	<resultMap type="com.java.model.User" id="UserDTO">
+		<result property="id" column="id"/>
+		<result property="job_number" column="job_number"/>
+		<result property="name" column="name"/>
+		<result property="password" column="password"/>
+		<result property="identity" column="identity"/>
+		<result property="place" column="place"/>
+		<result property="phone" column="phone"/>
+		<result property="remark" column="remark"/>
+	</resultMap>
+
+    <select id="findByUsername" resultMap="UserDTO">
+         select * from user where 
+         job_number = #{job_number,jdbcType=VARCHAR} and password= #{password,jdbcType=VARCHAR}
+    </select>
+    
+   
+   <!-- 修改用户信息 -->
+    <update id="updateUser">
+         update user
+         <set>
+           phone = #{phone},remark = #{remark}
+          
+         </set>
+         <where>
+           job_number = #{job_number}
+         </where>
+    </update>
+    
+    <!-- 管理员编辑用户信息 -->
+     <update id="updateUsers" parameterType="User">
+         update user
+         <set>
+           name = #{name},place = #{place},phone = #{phone},remark = #{remark}
+         </set>
+         <where>
+           job_number = #{job_number}
+         </where>
+    </update>
+    
+    
+    
+    <!-- 用户修改密码 -->
+    <update id="updatePassword">
+       update user
+       <set>
+         password = #{password}  
+       </set>
+       <where>
+         job_number = #{job_number}
+       </where>
+    </update>
+    
+    
+    <resultMap type="com.java.model.User" id="ListDTO">
+		<result property="id" column="id"/>
+		<result property="job_number" column="job_number"/>
+		<result property="name" column="name"/>
+		<result property="password" column="password"/>
+		<result property="identity" column="identity"/>
+		<result property="place" column="place"/>
+		<result property="phone" column="phone"/>
+		<result property="remark" column="remark"/>
+	</resultMap>
+    
+    <!-- 获取用户列表 -->
+     <select id="getUserList" resultMap="ListDTO">
+         select * from user 
+     </select>
+     
+     <!-- 删除用户 -->
+     <delete id="deleteUser">
+         delete from user
+         <where>
+         job_number = #{job_number}
+         </where>
+     </delete>
+     <!-- 查询用户名是否存在 -->
+     <select id="queryExistUsername" resultType="int" parameterType="User">
+         select count(0)
+         from user
+         WHERE name=#{name}
+    </select>
+    <!-- 添加用户 -->
+    <insert id="addUser" parameterType="User">
+        INSERT INTO user
+        (job_number,name,place,phone,remark) VALUES
+            (#{job_number},#{name},#{place},#{phone},#{remark})
+    </insert>
+    <!-- 添加签到记录 -->
+    <insert id="addRegisterRecord" keyColumn="id" keyProperty="id" useGeneratedKeys="true" parameterType="com.java.model.Register">
+          insert into register
+          (user_id,diff_time) values
+          (#{user_id, jdbcType=INTEGER},
+          #{diff_time, jdbcType=VARCHAR})
+      </insert>
+    
+</mapper>

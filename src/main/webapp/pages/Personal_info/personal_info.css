@@ -1,0 +1,11 @@
+.personal_info_main .content .base_info {
+  width: 666px;
+  padding: 50px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 5px;
+}
+.personal_info_main .content .salf_info {
+  padding-top: 50px;
+  width: 520px;
+}

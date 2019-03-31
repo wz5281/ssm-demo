@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请登录</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" href="index.css">
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib//jquery3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../lib/element-ui/index.css">
+    <script src="../../lib/element-ui/index.js"></script>
+     <!-- 字体图标 -->
+     <link rel="stylesheet" href="../../lib/iconfont/iconfont.css">
+</head>
+<body class="login-bg">
+    <div class="login" id="login">
+        <div class="message">图书馆签到管理系统</div>
+        <div id="darkbannerwrap"></div>
+        <form @submit.prevent="login">
+            <div class="ipt_icon">
+                <i class="iconfont icon-yonghu"></i>
+                <input name="username icon-zhanghao" placeholder="账号" type="text" autocomplete="off" class="layui-input" v-model="job_number" @blur="job_number_req">
+            </div>
+            <hr class="hr15">
+            <div class="ipt_icon">
+                <i class="iconfont icon-icon-"></i>
+                <input name="password" placeholder="密码" type="password" autocomplete="off" class="layui-input" v-model="password" @blur="password_req">
+            </div>
+            <hr class="hr15">
+            <input v-model="login_text" lay-submit lay-filter="login" style="width:100%;" type="submit">
+            <hr class="hr20">
+        </form>
+    </div>
+<script src="../../js/common.js"></script>
+<script src="./login.js"></script>
+<script src="../../js/mousemove.js"></script>
+<link rel="stylesheet" href="../../css/mousemove.css">
+</body>
+
+</html>

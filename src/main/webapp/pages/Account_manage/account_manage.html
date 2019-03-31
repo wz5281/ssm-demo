@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../lib/element-ui/index.css">
+  <link rel="stylesheet" href="./account_manage.css">
+  <script src="../../lib/vue.js"></script>
+  <script src="../../lib/element-ui/index.js"></script>
+  <title>账号管理</title>
+</head>
+
+<body>
+  <div class="vice-body">
+    <div class="main account_manage_main" id="account_manage_main">
+      <p class="title page_title">
+        <i></i>
+        账号管理
+      </p>
+      <div class="top">
+        <el-button type="primary" icon="el-icon-plus"  size="medium" @click="addBtn">新增</el-button>
+        <el-button icon="el-icon-refresh" @click="get_user_list"  size="medium">刷新</el-button>
+      </div>
+      <div class="account_table">
+        <el-table :data="show_list" stripe style="width: 98%" height='450'>
+          <!-- 序号列 -->
+          <el-table-column type="index" width="50" fixed>
+          </el-table-column>
+          <el-table-column prop="job_number" label="账号" width="120" sortable>
+          </el-table-column>
+          <el-table-column prop="name" label="用户名" width="" sortable>
+          </el-table-column>
+          <el-table-column prop="identity" label="身份">
+          </el-table-column>
+          <el-table-column prop="place" label="值班室">
+          </el-table-column>
+          <el-table-column prop="phone" label="联系方式" width="180">
+          </el-table-column>
+          <el-table-column prop="remark" label="备注">
+          </el-table-column>
+          <!-- 操作列 -->
+          <el-table-column align="right" min-width="200" width="200">
+            <template slot="header" slot-scope="scope">
+              <el-input v-model="search_name" size="mini" placeholder="输入姓名搜索" />
+            </template>
+            <template slot-scope="scope">
+              <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+              <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </div>
+      <!-- 删除提示 -->
+      <el-dialog title="提示" :visible.sync="del_dialog" width="30%">
+        <span>大王三思啊 ,真的要删?</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="sureDelete">真的</el-button>
+          <el-button @click="del_dialog = false">手滑了</el-button>
+        </span>
+      </el-dialog>
+      <!-- 添加 / 编辑-->
+      <el-dialog :title="dialogFormTitle" :visible.sync="dialogFormVisible" @close="claosForm" width="520px">
+          <el-form :model="form">
+              <el-form-item>
+                  <el-input placeholder="账号" v-model="form.job_number" :disabled="dialogFormType=='alter'"></el-input>
+                </el-form-item>
+              <el-form-item>
+                <el-input  placeholder="用户名" v-model="form.name"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-input  placeholder="值班室" v-model="form.place"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-input  placeholder="联系方式" v-model="form.phone"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-input  placeholder="备注" v-model="form.remark"></el-input>
+              </el-form-item>
+           
+          </el-form>
+          <span slot="footer" class="dialog-footer">
+            <el-button @click="claosForm">取 消</el-button>
+            <el-button type="primary" @click="submit_form">确 定</el-button>
+          </span>
+        </el-dialog>
+    </div>
+  </div>
+</body>
+<script src="../../lib/jquery3.3.1.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="./account_manage.js"></script>
+
+</html>

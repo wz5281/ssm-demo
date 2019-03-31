@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../lib/layui/css/layui.css">
+    <link rel="stylesheet" href="./register.css">
+    <link rel="stylesheet" href="../../lib/iconfont/iconfont.css">
+    <script src="../../lib/layui/layui.js"></script>
+    <title>签到/签退</title>
+</head>
+
+<body>
+    <div class="vice-body">
+        <div class="main register-main">
+            <p class="title page_title">
+                <i></i>
+                签到签退
+            </p>
+            <div class="content">
+                <div class="left">
+                    <!-- 签到信息 -->
+                    <div class="register_info info_box">
+                        <div class="info_title">
+                            <i class="iconfont icon-qdao"></i>
+                            <span>签到信息</span>
+                        </div>
+                        <ul class="info">
+                            <li>姓　　名 :　<span id="name">用户名</span></li>
+                            <li>状　　态 :　<span id="register_state">待签到</span></li>
+                            <li>签到时间 :　<span id="register_time">暂未签到</span></li>
+                            <li>签退时间 :　<span id="signback_time">暂未签退</span></li>
+                        </ul>
+                    </div>
+                    <!-- 提示信息 -->
+                    <div class="tip_info  info_box">
+                        <div class="info_title">
+                            <i class="iconfont icon-tishi"></i>
+                            <span>温馨提示</span>
+                        </div>
+                        <ul class="info">
+                            <li>为了能够记录准确记录你的签到时长</li>
+                            <li>签退之前请勿关闭此窗口哦</li>
+                            <li>否则后果自负哦</li>
+                            <li>在线时间要持续至少45分才可以签退哦</li>
+                            <li>退出系统前一定要记得签退哦</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <!-- 签到容器 -->
+                    <div class="register_box  info_box">
+                        <div class="info_title">
+                            <i class="iconfont icon-qiandao1"></i>
+                            <span>签到</span>
+                        </div>
+                        <div class="info">
+                            <div class="register_top">
+                                <div class="qiandao register_btn button" id="register_btn" onclick=" register()">
+                                    签到
+                                </div>
+                                <div class="qiantui register_btn disable" id="signback_btn" onclick="signback()">
+                                    签退
+                                </div>
+                                <div class="tip" id="signback_tip">
+                                    签退成功!请收好自己的财物,避免遗失,值班室无人请关好门窗,谢谢配合!
+                                </div>
+                            </div>
+                            <div class="register_bottom">
+                                <div class="info_title">
+                                    <i class="iconfont icon-lianjie"></i>
+                                    <span>友情推荐</span>
+                                </div>
+                                <div class="tuijian">
+                                    <div class="link">
+                                        <div class="go" data-link="http://www.cqcet.edu.cn/">
+                                            <img src="./images/dianzixiao.jpg" alt="">
+                                        </div>
+                                        <div class="label">校官网</div>
+                                    </div>
+                                    <div class="link">
+                                        <div class="go" data-link="https://www.zhihu.com">
+                                            <img src="./images/zhihu.jpg" alt="">
+                                        </div>
+                                        <div class="label">知乎</div>
+                                    </div>
+                                    <div class="link">
+                                        <div class="go" data-link="https://www.bilibili.com/">
+                                            <img src="./images/bilibili.jpg" alt="">
+                                        </div>
+                                        <div class="label">哔哩哔哩</div>
+                                    </div>
+                                    <div class="link">
+                                        <div class="go" data-link="https://weibo.com/login.php">
+                                            <img src="./images/xinlang.jpg" alt="">
+                                        </div>
+                                        <div class="label">新浪微博</div>
+                                    </div>
+                                    <div class="link">
+                                        <div class="go" data-link="https://www.taobao.com/">
+                                            <img src="./images/taobao.jpg" alt="">
+                                        </div>
+                                        <div class="label">淘宝网</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="../../lib/jquery3.3.1.min.js"></script>
+<script src="../../lib/moment.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="./js/anime.min.js"></script>
+<script src="./js/particles.js"></script>
+<script src="./js/register.js"></script>
+
+</html>

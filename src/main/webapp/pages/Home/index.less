@@ -1,0 +1,84 @@
+@border-color: #ebeef5;
+@shadow:0 2px 12px 0 rgba(0,0,0,.1);
+.home-main{
+    display: flex;
+    // justify-content: space-between;
+    .left{
+        width: 350px;
+        min-width: 450px;
+        max-width: 450px;
+        height: 100%;
+        // flex: 3;
+        display: flex;
+        flex-direction: column;
+        .user-info,.system-info{
+            border-radius: 5px;
+            border: 1px solid @border-color;
+            box-shadow: @shadow;
+        }
+        .user-info{
+            min-height: 220px;
+            .name{
+                padding-left: 30px;
+                font-size: 20px;
+                height: 50px;
+                line-height: 50px;
+                color: #01AAED;
+                border-bottom: 1px solid @border-color;
+            }
+            .info{
+                margin-top: 15px;
+                li{
+                    list-style: disc;
+                    margin-left: 50px;
+                    height: 30px;
+                    line-height: 30px;
+                    color:#333;
+                    label{
+                        display: inline-block;
+                        width: 80px;
+                    }
+                }
+            }
+        }
+        .system-info{
+            height: 100%;
+            margin-top: 10px;
+            .title{
+                padding-left: 30px;
+                font-size: 20px;
+                height: 50px;
+                line-height: 50px;
+                color: #01AAED;
+                border-bottom: 1px solid @border-color;
+            }
+            .info{
+                margin-top: 15px;
+                li{
+                    list-style: disc;
+                    margin-left: 50px;
+                    height: 30px;
+                    line-height: 30px;
+                    color:#555;
+                }
+            }
+        }
+    }
+    .right{
+        width: 100%;
+        max-width:850px;
+        height: 450px;
+        margin-left: 15px;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid @border-color;
+        box-shadow: @shadow;
+        .item{
+            img{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

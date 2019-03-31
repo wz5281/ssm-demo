@@ -1,0 +1,154 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书馆签到管理系统</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="./lib/iconfont/iconfont.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="lib/vue.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./lib/element-ui/index.css">
+    <script src="./lib/element-ui/index.js"></script>
+    <script src="lib/jquery3.3.1.min.js"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+</head>
+
+<body>
+    <div id="indexMain">
+        <!-- 顶部开始 -->
+        <div class="container">
+            <!-- 左 -->
+            <div class="logo"><a href="./index.html">图书馆签到系统</a></div>
+            <div class="left_open">
+                <i title="展开左侧栏" class="iconfont">&#xe699;</i>
+            </div>
+            <!-- 右 -->
+            <ul class="layui-nav right" lay-filter="" id="userinfo">
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="ellipsis">{{name}}</a>
+                    <dl class="layui-nav-child">
+                        <!-- 二级菜单 -->
+                        <dd><a href="javascript:;" @click="dialogVisible = true">退出登录</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <!-- 顶部结束 -->
+        <!-- 中部开始 -->
+        <!-- 左侧菜单开始 -->
+        <div class="left-nav">
+            <div id="side-nav">
+                <ul class="nav-home">
+                    <li>
+                        <a href="javascript:;" @click="gohome">
+                            <i class="iconfont icon-daohangshouye"></i>
+                            <cite>首页</cite>
+                        </a>
+                    </li>
+                </ul>
+                <ul id="nav">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="iconfont icon-qiandaoguanli"></i>
+                            <cite>值班管理</cite>
+                            <i class="iconfont nav_right">&#xe697;</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a _href="./pages/Register/register.html" class="link_to">
+                                    <i class="iconfont icon-qiandao1"></i>
+                                    <cite>签到/签退</cite>
+                                </a>
+                            </li>
+                            <li>
+                                <a _href="./pages/Register_calendar/register_calendar.html" class="link_to">
+                                    <i class="iconfont icon-qiandaotongji"></i>
+                                    <cite>签到日历</cite>
+                                </a>
+                            </li>
+                            <li>
+                                <a _href="./pages/Wage_statistics/wage_statistics.html" class="link_to">
+                                    <i class="iconfont icon-tongji"></i>
+                                    <cite>工资统计</cite>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="iconfont icon-guanli"></i>
+                            <cite>信息管理</cite>
+                            <i class="iconfont nav_right">&#xe697;</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a _href="./pages/Personal_info/personal_info.html" class="link_to">
+                                    <i class="iconfont icon-HRrenshirenshiguanli"></i>
+                                    <cite>个人信息</cite>
+                                </a>
+                            </li>
+                            <li>
+                                <a _href="./pages/Account_manage/account_manage.html" class="link_to">
+                                    <i class="iconfont icon-xiugaimima"></i>
+                                    <cite>账号管理</cite>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="x-slide_left"></div> -->
+        <!-- 左侧菜单结束 -->
+        <!-- 右侧主体开始 -->
+        <!-- 仅首页 -->
+        <div class="page-content" v-show="home_show">
+            <div class="layui-tab tab">
+                <!-- <ul class="layui-tab-title"></ul> -->
+                <div class="layui-tab-content my-content">
+                    <div class="layui-tab-item layui-show">
+                        <iframe src='./pages/Home/home.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 首页之外 -->
+        <div class="page-content" v-show="!home_show">
+            <div class="layui-tab tab" lay-filter="cot_tab" lay-allowclose="false">
+                <ul class="layui-tab-title" ref="tab_title">
+                    <!-- <li></li> -->
+                </ul>
+                <div class="layui-tab-content">
+                    <!-- <div class="layui-tab-item layui-show">
+                        <iframe src='' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="page-content-bg"></div>
+        <!-- 右侧主体结束 -->
+        <!-- 中部结束 -->
+        <!-- 底部开始 -->
+        <!-- <div class="footer">
+            <div class="copyright">&copy; 重庆电子工程职业学院</div>
+        </div> -->
+        <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
+            <span>确认退出登录吗</span>
+            <span slot="footer" class="dialog-footer">
+                <el-button type="primary" @click="logout">确 定</el-button>
+                <el-button @click="dialogVisible = false">取 消</el-button>
+            </span>
+        </el-dialog>
+    </div>
+
+</body>
+<script src="./js/index.js"></script>
+
+</html>

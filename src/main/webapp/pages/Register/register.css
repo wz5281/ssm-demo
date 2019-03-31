@@ -1,0 +1,125 @@
+.register-main .content {
+  width: 90%;
+  height: 550px;
+  margin: 20px auto;
+  display: flex;
+}
+.register-main .content .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.register-main .content .left .register_info,
+.register-main .content .left .tip_info {
+  flex: 1;
+  margin-bottom: 15px;
+}
+.register-main .content .right {
+  flex: 2;
+  height: 100%;
+  margin-left: 15px;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #ebeef5;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.register-main .content .right .register_box {
+  height: 100%;
+}
+.register-main .content .right .register_box .info {
+  display: flex;
+  flex-direction: column;
+}
+.register-main .content .right .register_box .info .register_top {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.register-main .content .right .register_box .info .register_top .register_btn {
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  border-radius: 60px;
+  line-height: 60px;
+  text-align: center;
+  background: #01AAED;
+  cursor: pointer;
+  color: #fff;
+  left: 50%;
+  top: 50%;
+  margin-top: -30px;
+  margin-left: -100px;
+}
+.register-main .content .right .register_box .info .register_top .qiantui {
+  background: #f44336;
+  display: none;
+}
+.register-main .content .right .register_box .info .register_top .tip {
+  font-size: 18px;
+  color: #666;
+  display: none;
+}
+.register-main .content .right .register_box .info .register_bottom {
+  flex: 1;
+}
+.register-main .content .right .register_box .info .register_bottom .tuijian {
+  width: 100%;
+  height: 80px;
+  margin-top: 30px;
+  display: flex;
+}
+.register-main .content .right .register_box .info .register_bottom .tuijian .link {
+  margin-left: 30px;
+}
+.register-main .content .right .register_box .info .register_bottom .tuijian .link .go {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.register-main .content .right .register_box .info .register_bottom .tuijian .link .go img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.register-main .content .right .register_box .info .register_bottom .tuijian .link .label {
+  width: 60px;
+  text-align: center;
+  color: #666;
+  margin-top: 10px;
+}
+.register-main .content .left .info_box,
+.register-main .content .right .info_box {
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #ebeef5;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+.register-main .content .left .info_box .info_title,
+.register-main .content .right .info_box .info_title {
+  padding-left: 30px;
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+  color: #01AAED;
+  border-bottom: 1px solid #ebeef5;
+}
+.register-main .content .left .info_box .info,
+.register-main .content .right .info_box .info {
+  height: 100%;
+  margin-top: 15px;
+}
+.register-main .content .left .info_box .info li,
+.register-main .content .right .info_box .info li {
+  list-style: disc;
+  margin-left: 50px;
+  height: 30px;
+  line-height: 30px;
+  color: #333;
+}
